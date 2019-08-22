@@ -1,0 +1,25 @@
+﻿<Properties StartupConfiguration="{CC5A17DE-34D1-5BBE-7C54-7886270CA10D}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/CameraController.cs">
+    <Files>
+      <File FileName="Assets/ButtonHandler.cs" Line="19" Column="24" />
+      <File FileName="Assets/Win_Trigger.cs" />
+      <File FileName="Assets/PlayerController.cs" />
+      <File FileName="Assets/GameController.cs" Line="1" Column="1" />
+      <File FileName="Assets/CameraController.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Rolling Stone" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="54057887-39d5-4f22-948a-e2e23cb06255" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

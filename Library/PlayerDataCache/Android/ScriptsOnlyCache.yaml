@@ -25,9 +25,10 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.InputField
     - UnityEngine.UI.Text
   sceneClasses:
-    Assets/Scenes/New Scene.unity:
+    Assets/Scenes/Main.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -53,35 +54,37 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9660}
+      Script: {instanceID: 9662}
     - Class: 114
-      Script: {instanceID: 9836}
+      Script: {instanceID: 9838}
     - Class: 114
-      Script: {instanceID: 9880}
+      Script: {instanceID: 9882}
     - Class: 114
-      Script: {instanceID: 9966}
+      Script: {instanceID: 9968}
     - Class: 114
-      Script: {instanceID: 10182}
+      Script: {instanceID: 10184}
     - Class: 114
-      Script: {instanceID: 10306}
+      Script: {instanceID: 10308}
     - Class: 114
-      Script: {instanceID: 10320}
+      Script: {instanceID: 10322}
     - Class: 114
-      Script: {instanceID: 10430}
+      Script: {instanceID: 10434}
     - Class: 114
-      Script: {instanceID: 10474}
+      Script: {instanceID: 10478}
     - Class: 114
-      Script: {instanceID: 10608}
+      Script: {instanceID: 10610}
     - Class: 114
-      Script: {instanceID: 10710}
+      Script: {instanceID: 10712}
+    - Class: 114
+      Script: {instanceID: 10922}
     - Class: 114
       Script: {instanceID: 11236}
     - Class: 114
       Script: {instanceID: 11254}
     - Class: 114
-      Script: {instanceID: 11634}
+      Script: {instanceID: 11636}
     - Class: 114
-      Script: {instanceID: 11638}
+      Script: {instanceID: 11640}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -261,7 +264,7 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 2af725d643e7239874e0b0e0dd452bbb
+      Hash: 421f75eb3cb07f2c2cc75d11cb8e6efe
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ButtonHandler
@@ -291,7 +294,7 @@ ScriptsOnlyBuild:
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 062fe26b75e2dcc10c7338bbe94c31e4
+      Hash: 7fcea2d2150660ef73e1de1ac0d0a189
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameController
@@ -351,7 +354,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
-      Hash: 18276cee0543fd305cd00ff5a56aec86
+      Hash: d820ce66f4ab91da4ffdd2fd16d656c0
     assemblyName: Assembly-CSharp.dll
     namespaceName: SocketIO
     className: SocketIOComponent
@@ -579,5 +582,5 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   platform: 13
   scenePathNames:
-  - Assets/Scenes/New Scene.unity
-  playerPath: /Users/kobe/Rolling Stone/Builds/build.apk
+  - Assets/Scenes/Main.unity
+  playerPath: /Users/kobe/Desktop/Rolling Gem/Builds/run.apk

@@ -1,0 +1,4 @@
+#Tue Aug 27 21:27:43 PDT 2019
+base.0=/Users/kobe/Desktop/Rolling Gem/Temp/gradleOut/build/intermediates/transforms/dexMerger/release/0
+path.0=classes.dex
+renamed.0=classes.dex

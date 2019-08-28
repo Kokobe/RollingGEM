@@ -1,0 +1,33 @@
+﻿<Properties StartupConfiguration="{A5B31D9B-D2FA-C3A9-D283-D188E5E4209E}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/ButtonHandler.cs">
+    <Files>
+      <File FileName="Assets/ButtonHandler.cs" Line="28" Column="16" />
+      <File FileName="Assets/GameController.cs" />
+      <File FileName="Assets/Win_Trigger.cs" />
+      <File FileName="Assets/SocketIO/Scripts/SocketIO/SocketIOEvent.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Rolling Gem" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="SocketIO" expanded="True">
+                <Node name="Scripts" expanded="True">
+                  <Node name="SocketIO" expanded="True" />
+                </Node>
+              </Node>
+              <Node name="ButtonHandler.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="cbf5692d-3ba8-4968-b20f-bc2c6eea8889" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

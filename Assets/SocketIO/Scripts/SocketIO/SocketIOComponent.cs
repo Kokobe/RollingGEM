@@ -40,8 +40,8 @@ namespace SocketIO
 {
 	public class SocketIOComponent : MonoBehaviour
 	{
-		#region Public Properties
-
+        #region Public Properties
+        public string game_pin;
 		public string url = "ws://127.0.0.1:4567/socket.io/?EIO=4&transport=websocket";
 		public bool autoConnect = true;
 		public int reconnectDelay = 5;
@@ -142,9 +142,10 @@ namespace SocketIO
 				wsConnected = ws.IsConnected;
 				if(wsConnected){
 					EmitEvent("connect");
-				} else {
-					EmitEvent("disconnect");
-				}
+                  
+                } else {
+                    EmitEvent("disconnect");
+                }
 			}
 
 			// GC expired acks
@@ -297,7 +298,7 @@ namespace SocketIO
 		{
 			EmitPacket(new Packet(EnginePacketType.MESSAGE, SocketPacketType.DISCONNECT, 0, "/", -1, new JSONObject("")));
 			EmitPacket(new Packet(EnginePacketType.CLOSE));
-		}
+        }
 
 		private void EmitPacket(Packet packet)
 		{

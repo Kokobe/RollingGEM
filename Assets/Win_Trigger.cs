@@ -22,12 +22,11 @@ public class Win_Trigger : MonoBehaviour
     {
         if (!finished)
         {
-            Debug.Log("winner: " + game_controller.userId);
             Dictionary<string, string> data = new Dictionary<string, string>();
-            data["winner"] = game_controller.userId; 
+            data["winner"] = game_controller.userId;
+            data["game_pin"] = game_controller.GAME_PIN;
             socket.Emit("FINISHED", new JSONObject(data));
             
-
             sprite_renderer.sprite = new_sprite;
             cam_controller.move(13.5f);
             finished = true;

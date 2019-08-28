@@ -10,11 +10,12 @@ public class GameController : MonoBehaviour
     PlayerController player_controller;
     SocketIOComponent socketIO;
 
-    public GameObject title_screen;
+    public GameObject menu_screen;
     public GameObject ready_screen;
     public GameObject finish_screen;
+    public Text error_message;
     public Text waitingText;
-    public Button startButton;
+    public Button readyButton;
     public Text finishText;
     public Text gamePinText;
     public Text playersText;
@@ -30,10 +31,12 @@ public class GameController : MonoBehaviour
         userId = System.Guid.NewGuid().ToString();
         StartCoroutine(ConnectToServer());
 
+        socketIO.On("VALID GAME PIN", OnGamePinExists);
+        socketIO.On("INVALID GAME PIN", OnGamePinDoesNotExist);
         socketIO.On("USER JOINED GAME", OnUserJoinedGame);
         socketIO.On("USER LEFT GAME", OnUserLeftGame);
-        socketIO.On("CONNECTION READY", OnConnectionEstablished);
-        socketIO.On("CONNECTION NOT READY", OnConnectionNotEstablished);
+        socketIO.On("CONNECTION READY", OnConnectionReady);
+        socketIO.On("CONNECTION NOT READY", OnConnectionNotReady);
         socketIO.On("BOTH PLAYERS READY", StartGame);
         socketIO.On("RESULT", OnResultReceived);
     }
@@ -51,17 +54,49 @@ public class GameController : MonoBehaviour
         socketIO.Emit("USER_CONNECT");
     }
 
-    public void JoinGame(string game_pin)
+    public void JoinGame(string game_pin) //if game exists, it joins it. else it creates game.
     {
+        error_message.text = "";
         Dictionary<string, string> data = new Dictionary<string, string>();
         data["game_pin"] = game_pin;
         game_pin_jsonobj = new JSONObject(data);
+
         socketIO.Emit("JOIN GAME", game_pin_jsonobj);
         GAME_PIN = game_pin;
         gamePinText.text = "Game Pin = " + GAME_PIN;
 
-        title_screen.SetActive(false);
+        menu_screen.SetActive(false);
         ready_screen.SetActive(true);
+    }
+
+    public void ValidifyGamePin(string game_pin)
+    {
+        Dictionary<string, string> data = new Dictionary<string, string>();
+        data["game_pin"] = game_pin;
+        data["userId"] = userId;
+        socketIO.Emit("CHECK GAME PIN", new JSONObject(data));
+    }
+
+    public void OnGamePinExists(SocketIOEvent obj)
+    {  
+        string user = obj.data.GetField("userId").ToString();
+        user = user.Substring(1, user.Length - 2);
+        if (user == userId)
+        {
+            string game_pin = obj.data.GetField("game_pin").ToString();
+            game_pin = game_pin.Substring(1, game_pin.Length - 2);
+            JoinGame(game_pin);
+        }
+    }
+
+    public void OnGamePinDoesNotExist(SocketIOEvent obj)
+    {
+        string user = obj.data.GetField("userId").ToString();
+        user = user.Substring(1, user.Length - 2);
+        if (user == userId)
+        {
+            error_message.text = "Game PIN invalid.";
+        }
     }
 
     void OnUserJoinedGame(SocketIOEvent obj)
@@ -76,22 +111,16 @@ public class GameController : MonoBehaviour
         playersText.text = "Players = " + players;
     }
 
-    void OnConnectionEstablished(SocketIOEvent obj)
+    void OnConnectionReady(SocketIOEvent obj)
     {
-        if (!gameStarted)
-        {
-            waitingText.gameObject.SetActive(false);
-            startButton.gameObject.SetActive(true);
-        }
+        waitingText.gameObject.SetActive(false);
+        readyButton.gameObject.SetActive(true);
     }
 
-    void OnConnectionNotEstablished(SocketIOEvent obj)
+    void OnConnectionNotReady(SocketIOEvent obj)
     {
-        if (!gameStarted)
-        {
-            waitingText.gameObject.SetActive(true);
-            startButton.gameObject.SetActive(false);
-        }
+        waitingText.gameObject.SetActive(true);
+        readyButton.gameObject.SetActive(false);
     }
 
     public void Ready()
@@ -110,15 +139,18 @@ public class GameController : MonoBehaviour
 
     void OnResultReceived(SocketIOEvent obj)
     {
-        string winner_id = obj.data.GetField("winner").ToString();
-        winner_id = winner_id.Substring(1, winner_id.Length - 2);
-      
-        if (winner_id == userId)
-            finishText.text = "You won!";
-        else
-            finishText.text = "You lost :(";
+        if (gameStarted)
+        {
+            string winner_id = obj.data.GetField("winner").ToString();
+            winner_id = winner_id.Substring(1, winner_id.Length - 2);
 
-        ShowFinishScreen();
+            if (winner_id == userId)
+                finishText.text = "You won!";
+            else
+                finishText.text = "You lost :(";
+
+            ShowFinishScreen();
+        }
     }
 
 
@@ -126,6 +158,7 @@ public class GameController : MonoBehaviour
     {
         ready_screen.SetActive(false);
         finish_screen.SetActive(true);
+        gameStarted = false;
     }
 
     public void GoBackToReadyScreen()
@@ -133,9 +166,15 @@ public class GameController : MonoBehaviour
         ready_screen.SetActive(true);
         finish_screen.SetActive(false);
 
-        startButton.gameObject.SetActive(true);
         win_trigger.ResetTrigger();
 
         socketIO.Emit("RESET READY PLAYERS", game_pin_jsonobj);
+    }
+
+    public void ReturnToMenu()
+    {
+        menu_screen.SetActive(true);
+        ready_screen.SetActive(false);
+        socketIO.Emit("LEAVE GAME", game_pin_jsonobj);
     }
 }

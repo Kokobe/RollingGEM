@@ -8,6 +8,7 @@ public class ButtonHandler : MonoBehaviour
 {
     public GameController game_controller;
     public InputField game_pin_input;
+    public Text error_message;
     private static string characters = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMMOPQRSTUVWXYZ";
     private static int pin_length = 6;
     private static System.Random rnd = new System.Random();
@@ -25,9 +26,12 @@ public class ButtonHandler : MonoBehaviour
 
     public void JoinGame()
     {
-        if(game_pin_input.text.Length == 6)
+        if(game_pin_input.text.Length == pin_length)
         {
-            game_controller.JoinGame(game_pin_input.text);
+            game_controller.ValidifyGamePin(game_pin_input.text);
+        } else
+        {
+            error_message.text = "Game PIN invalid.";
         }
     }
 
@@ -45,5 +49,10 @@ public class ButtonHandler : MonoBehaviour
             result += characters.Substring(randNum, 1); 
         }
         return result;
+    }
+
+    public void ReturnToMenu()
+    {
+        game_controller.ReturnToMenu();
     }
 }

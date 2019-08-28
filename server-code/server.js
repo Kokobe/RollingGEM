@@ -17,15 +17,27 @@ io.on('connection', function (socket) {
 		console.log('User Connected ');
 	});
 
+	socket.on('CHECK GAME PIN', function (data){
+		var game_pin = data["game_pin"];
+		var userId = data["userId"];
+		if (Object.keys(games).includes(game_pin)) {
+			io.emit("VALID GAME PIN", {"game_pin" : game_pin, "userId" : userId});
+		} else {
+			io.emit("INVALID GAME PIN", {"game_pin" : game_pin, "userId" : userId});
+		}
+	});
+
 	socket.on('JOIN GAME', function (data) {
 		var game_pin = data["game_pin"]
 		if (Object.keys(games).includes(game_pin)){
 			games[game_pin]["players"] += 1;
+			console.log("room created: " + game_pin)
  		} else {
 			games[game_pin] = {"players" : 1, "ready players" : 0, "winner" : ""};
+			console.log("room joined: " + game_pin)
 		}
 		socket.join(game_pin);
-		console.log("room created: " + game_pin)
+		
 		console.log("num of clients in room = " + io.sockets.adapter.rooms[game_pin].length);
 		io.to(game_pin).emit("USER JOINED GAME", games[game_pin]);
 		if(games[game_pin]["players"] > 1) {
@@ -38,15 +50,11 @@ io.on('connection', function (socket) {
 	socket.on('READY TO PLAY', function (data){
 		var game_pin = data["game_pin"]
 		games[game_pin]["ready players"] += 1;
-		if (games[game_pin]["ready players"] > 1)
+		if (games[game_pin]["ready players"] > 1) {
 			io.to(game_pin).emit("BOTH PLAYERS READY", {});
-		console.log("ready players = " + games[game_pin]["ready players"]);
-	});
-
-	socket.on('RESET READY PLAYERS', function (data){
-		var game_pin = data["game_pin"]
-		games[game_pin]["ready players"] = 0;
-		games[game_pin]["winner"] = "";
+			games[game_pin]["ready players"] = 0;
+			games[game_pin]["winner"] = "";
+		}
 		console.log("ready players = " + games[game_pin]["ready players"]);
 	});
 
@@ -59,6 +67,27 @@ io.on('connection', function (socket) {
 			winner: games[game_pin]["winner"]
 		}
 		io.to(game_pin).emit("RESULT", data);
+		if (games[game_pin]["players"] > 1) {
+			io.to(game_pin).emit("CONNECTION READY");
+		}
+	});
+
+	socket.on('LEAVE GAME', function (data){
+		var game_pin = data["game_pin"]
+		socket.leave(game_pin);
+		var clients = io.sockets.adapter.rooms[game_pin];
+		if (clients == null) {
+			games[game_pin]["players"] = 0;
+		} else {
+			games[game_pin]["players"] = clients.length;
+		}
+		games[game_pin]["ready players"] = 0;
+		io.to(game_pin).emit("USER LEFT GAME", games[game_pin]);
+		if(games[game_pin]["players"] == 0) {
+			delete games[game_pin]
+		} else if(games[game_pin]["players"] == 1) {
+			io.to(game_pin).emit("CONNECTION NOT READY", {});
+		}
 	});
 
 	socket.on('disconnect', function (){

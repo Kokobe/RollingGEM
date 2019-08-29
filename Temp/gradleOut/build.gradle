@@ -40,7 +40,7 @@ android {
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 28
-        applicationId 'com.DefaultCompany.RollingStone'
+        applicationId 'com.DefaultCompany.RollingGem'
         ndk {
             abiFilters 'armeabi-v7a'
         }
@@ -53,7 +53,7 @@ android {
     }
 
     aaptOptions {
-        noCompress = ['.unity3d', '.ress', '.resource', '.obb']
+        noCompress = ['.unity3d', '.ress', '.resource', '.obb', 'drum1.mp3', 'drum2.mp3', 'drum3.mp3', 'android native audio/music native.ogg', 'android native audio/tone native.wav']
         ignoreAssetsPattern = "!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~"
     }
 

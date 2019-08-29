@@ -62,7 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\SocketIO\JSONObject\Editor\JSONChecker.cs" />
+    <Compile Include="Assets\Packages\SocketIO\JSONObject\Editor\JSONChecker.cs" />
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>/Users/kobe/Desktop/Rolling Gem/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>

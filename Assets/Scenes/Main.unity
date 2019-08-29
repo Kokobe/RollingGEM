@@ -8945,13 +8945,14 @@ GameObject:
   - component: {fileID: 2087207374}
   - component: {fileID: 2087207373}
   - component: {fileID: 2087207376}
+  - component: {fileID: 2087207377}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &2087207371
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9076,6 +9077,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05dc6fe59e2d249c19c2b6a551b6085c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2087207377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087207370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48e5282c415de4209b7a25c0557a24fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - drum1.mp3
+  - drum2.mp3
+  - drum3.mp3
 --- !u!1 &2104203302
 GameObject:
   m_ObjectHideFlags: 0

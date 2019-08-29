@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.DefaultCompany.RollingStone"
+    package="com.DefaultCompany.RollingGem"
     android:installLocation="preferExternal"
     android:versionCode="1"
     android:versionName="0.1" >
@@ -63,7 +63,7 @@
 
         <meta-data
             android:name="unity.build-id"
-            android:value="b3159a06-b639-4514-8442-458e06dba722" />
+            android:value="79acd472-c838-47c2-9b40-29c9b9eb8bfb" />
         <meta-data
             android:name="unity.splash-mode"
             android:value="0" />

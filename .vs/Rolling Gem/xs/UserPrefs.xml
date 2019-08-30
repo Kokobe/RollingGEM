@@ -1,35 +1,37 @@
 ﻿<Properties StartupConfiguration="{A5B31D9B-D2FA-C3A9-D283-D188E5E4209E}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SoundOnCollide.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Packages/SocketIO/Scripts/SocketIO/SocketIOComponent.cs">
     <Files>
       <File FileName="Assets/ButtonHandler.cs" Line="24" Column="44" />
       <File FileName="Assets/GameController.cs" Line="169" Column="36" />
       <File FileName="Assets/Win_Trigger.cs" />
-      <File FileName="Assets/SocketIO/Scripts/SocketIO/SocketIOEvent.cs" />
       <File FileName="Assets/ParticleOnCollide.cs" Line="1" Column="1" />
       <File FileName="Assets/ParticleOnCollide.cs" Line="13" Column="6" />
-      <File FileName="Assets/Scripts/SoundOnCollide.cs" Line="26" Column="57" />
-      <File FileName="Assets/Android Native Audio/Examples/ANA/ANAExample.cs" Line="19" Column="12" />
+      <File FileName="Assets/Scripts/SoundOnCollide.cs" Line="27" Column="43" />
+      <File FileName="Assets/Scripts/GenerateMaze.cs" Line="20" Column="24" />
+      <File FileName="Assets/Packages/SocketIO/Scripts/SocketIO/SocketIOComponent.cs" Line="310" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Rolling Gem" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="Android Native Audio" expanded="True">
-                <Node name="Examples" expanded="True">
-                  <Node name="ANA" expanded="True" />
+              <Node name="Packages" expanded="True">
+                <Node name="SocketIO" expanded="True">
+                  <Node name="Scripts" expanded="True">
+                    <Node name="SocketIO" expanded="True">
+                      <Node name="SocketIOComponent.cs" selected="True" />
+                    </Node>
+                  </Node>
                 </Node>
               </Node>
-              <Node name="Scripts" expanded="True">
-                <Node name="SoundOnCollide.cs" selected="True" />
-              </Node>
-              <Node name="SocketIO" expanded="True">
-                <Node name="Scripts" expanded="True">
-                  <Node name="SocketIO" expanded="True" />
-                </Node>
-              </Node>
+              <Node name="Scripts" expanded="True" />
             </Node>
           </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="Rolling Gem" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>

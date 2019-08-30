@@ -155,6 +155,7 @@
     <Compile Include="Assets\Scripts\ButtonHandler.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\GenerateMaze.cs" />
     <Compile Include="Assets\Scripts\ManualMovement.cs" />
     <Compile Include="Assets\Scripts\ParticleOnCollide.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />

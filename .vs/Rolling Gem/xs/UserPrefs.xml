@@ -1,14 +1,8 @@
 ﻿<Properties StartupConfiguration="{A5B31D9B-D2FA-C3A9-D283-D188E5E4209E}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Packages/SocketIO/Scripts/SocketIO/SocketIOComponent.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameController.cs">
     <Files>
-      <File FileName="Assets/ButtonHandler.cs" Line="24" Column="44" />
-      <File FileName="Assets/GameController.cs" Line="169" Column="36" />
-      <File FileName="Assets/Win_Trigger.cs" />
-      <File FileName="Assets/ParticleOnCollide.cs" Line="1" Column="1" />
-      <File FileName="Assets/ParticleOnCollide.cs" Line="13" Column="6" />
-      <File FileName="Assets/Scripts/SoundOnCollide.cs" Line="27" Column="43" />
-      <File FileName="Assets/Scripts/GenerateMaze.cs" Line="20" Column="24" />
-      <File FileName="Assets/Packages/SocketIO/Scripts/SocketIO/SocketIOComponent.cs" Line="310" Column="1" />
+      <File FileName="Assets/Scripts/GenerateMaze.cs" Line="24" Column="55" />
+      <File FileName="Assets/Scripts/GameController.cs" Line="144" Column="15" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -18,27 +12,22 @@
               <Node name="Packages" expanded="True">
                 <Node name="SocketIO" expanded="True">
                   <Node name="Scripts" expanded="True">
-                    <Node name="SocketIO" expanded="True">
-                      <Node name="SocketIOComponent.cs" selected="True" />
-                    </Node>
+                    <Node name="SocketIO" expanded="True" />
                   </Node>
                 </Node>
               </Node>
-              <Node name="Scripts" expanded="True" />
+              <Node name="Scripts" expanded="True">
+                <Node name="GameController.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.UnitTesting.TestPad">
-        <State name="__root__">
-          <Node name="Rolling Gem" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="c5f22c7e-4d95-46d6-bdca-410be4b63ce3" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="859c18ae-fb42-4b62-a7db-61c2968d6b75" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

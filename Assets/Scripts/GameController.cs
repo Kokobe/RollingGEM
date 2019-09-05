@@ -25,9 +25,10 @@ public class GameController : MonoBehaviour
     public string userId;
     public string GAME_PIN;
     public JSONObject game_pin_jsonobj;
+    public MazeGenerator mazeGenerator;
     void Awake()
     {
-        bindControllers();   
+        bindControllers();
         userId = System.Guid.NewGuid().ToString();
         StartCoroutine(ConnectToServer());
 
@@ -78,7 +79,7 @@ public class GameController : MonoBehaviour
     }
 
     public void OnGamePinExists(SocketIOEvent obj)
-    {  
+    {
         string user = obj.data.GetField("userId").ToString();
         user = user.Substring(1, user.Length - 2);
         if (user == userId)
@@ -128,8 +129,36 @@ public class GameController : MonoBehaviour
         socketIO.Emit("READY TO PLAY", game_pin_jsonobj);
     }
 
+    //since there were no C# methods that parsed strings into arrays, I made my own:
+    private ArrayList parseGameDimensions(string game_dimen) //game_dimen looks like: [1.23,-1.2,[1.3,-1.2],3.1]
+    {
+        string[] partialArr = game_dimen.Substring(1, game_dimen.Length - 2).Split(',');
+        ArrayList toReturn = new ArrayList();
+        List<float> float_arr = new List<float>();
+        
+        foreach (string s in partialArr)
+        {
+            if (s.Contains("[")) {
+                float_arr = new List<float>();
+                float_arr.Add(float.Parse(s.Substring(1)));
+            }
+            else if (s.Contains("]"))
+            {
+                float_arr.Add(float.Parse(s.Substring(0, s.Length - 1)));
+                toReturn.Add(float_arr);
+            }
+            else
+            {
+                toReturn.Add(float.Parse(s));
+            }
+        }
+        return toReturn;
+    }
+
     private void StartGame(SocketIOEvent obj)
     {
+        ArrayList arr = parseGameDimensions(obj.data.GetField("game_dimensions").ToString());
+        mazeGenerator.GenerateMaze(arr);
         cam_controller.move(-13.5f);
         player_controller.PutPlayerAtStart();
         player_controller.EnablePlayer();

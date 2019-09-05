@@ -11,6 +11,34 @@ var games = {};
 var winner = "";
 var readyPlayers = 0;
 
+function randInt(min, max) { //min = inclusive, max = exclusive
+	return min + Math.floor((max-min)* Math.random());
+}
+
+function randFloat(min, max) { 
+	return min + (max-min)* Math.random();
+}
+
+function generateMazeDimensions () {
+	var arr = [];
+	for (var i = 0; i < 12; i++) {
+		var randInteger = randInt(0, 3);
+		switch (randInteger) {
+			case 0:
+				arr.push(randFloat(-0.3, -2.8));
+				break;
+			case 1:
+				arr.push(randFloat(0.3, 2.8));
+				break;
+			case 2:
+				var gap_space = randFloat(.8, 2);
+				arr.push([gap_space, randFloat(-0.3, -2.8)])
+				break;
+		}
+	}
+	return arr;
+}
+
 io.on('connection', function (socket) {
 
 	socket.on('USER_CONNECT', function (){
@@ -50,8 +78,9 @@ io.on('connection', function (socket) {
 	socket.on('READY TO PLAY', function (data){
 		var game_pin = data["game_pin"]
 		games[game_pin]["ready players"] += 1;
-		if (games[game_pin]["ready players"] > 1) {
-			io.to(game_pin).emit("BOTH PLAYERS READY", {});
+		if (games[game_pin]["ready players"] === games[game_pin]['players']) {
+			var game_dimensions = generateMazeDimensions();
+			io.to(game_pin).emit("BOTH PLAYERS READY", {"game_dimensions" : game_dimensions});
 			games[game_pin]["ready players"] = 0;
 			games[game_pin]["winner"] = "";
 		}
@@ -90,6 +119,7 @@ io.on('connection', function (socket) {
 		}
 	});
 
+	// can't get any data from 'disconnect' so i have to comb through everybody
 	socket.on('disconnect', function (){
 		Object.keys(games).forEach(game_pin => {
 			var clients = io.sockets.adapter.rooms[game_pin];

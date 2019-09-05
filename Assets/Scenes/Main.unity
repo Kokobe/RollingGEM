@@ -1869,7 +1869,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 952566994}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ee1b9b92569f40db9a2654a93692993, type: 3}
+  m_Script: {fileID: 11500000, guid: 309a54a0af39e4f5ea0dc3a24664736d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   horizontal_block: {fileID: 9119176415824491805, guid: 3a1affb65dfbc4edfb996c712cfd4fc0,
@@ -7668,7 +7668,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 010d39cbd03ee4c99a746c1f8ecdc0d8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 010d39cbd03ee4c99a746c1f8ecdc0d8, type: 3}
       propertyPath: url
@@ -7893,6 +7893,7 @@ MonoBehaviour:
   gameStarted: 0
   userId: 
   GAME_PIN: 
+  mazeGenerator: {fileID: 952566996}
 --- !u!1 &1916298551
 GameObject:
   m_ObjectHideFlags: 0

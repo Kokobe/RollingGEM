@@ -64,7 +64,7 @@ public class GameController : MonoBehaviour
 
         socketIO.Emit("JOIN GAME", game_pin_jsonobj);
         GAME_PIN = game_pin;
-        gamePinText.text = "Game Pin = " + GAME_PIN;
+        gamePinText.text = GAME_PIN; 
 
         menu_screen.SetActive(false);
         ready_screen.SetActive(true);

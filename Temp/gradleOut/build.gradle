@@ -40,7 +40,7 @@ android {
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 28
-        applicationId 'com.DefaultCompany.RollingGem'
+        applicationId 'com.essential.rollinggem'
         ndk {
             abiFilters 'armeabi-v7a'
         }

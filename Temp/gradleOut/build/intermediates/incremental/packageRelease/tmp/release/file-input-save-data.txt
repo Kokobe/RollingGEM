@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Sep 04 17:30:30 PDT 2019
+#Fri Sep 06 11:12:21 PDT 2019
 60.set=DEX
 52.set=ASSET
 53.base=/Users/kobe/Desktop/Rolling Gem/Temp/gradleOut/build/intermediates/merged_assets/release/out

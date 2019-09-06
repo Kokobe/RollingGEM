@@ -21,17 +21,17 @@ function randFloat(min, max) {
 
 function generateMazeDimensions () {
 	var arr = [];
-	for (var i = 0; i < 12; i++) {
+	for (var i = 0; i < 11; i++) {
 		var randInteger = randInt(0, 3);
 		switch (randInteger) {
 			case 0:
-				arr.push(randFloat(-0.3, -2.8));
+				arr.push(randFloat(-0.5, -2.8));
 				break;
 			case 1:
-				arr.push(randFloat(0.3, 2.8));
+				arr.push(randFloat(0.5, 2.8));
 				break;
 			case 2:
-				var gap_space = randFloat(.8, 2);
+				var gap_space = randFloat(1, 2);
 				arr.push([gap_space, randFloat(-0.3, -2.8)])
 				break;
 		}

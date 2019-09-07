@@ -1,18 +1,12 @@
 {
-  "name": "sameple-io",
+  "name": "rolling-gem-docker-server",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://git.heroku.com/sameple-io.git"
-  },
-  "author": "wach",
-  "license": "ISC",
+  "author": "Kobe Chang",
   "dependencies": {
     "express": "^4.13.3",
     "shortid": "^2.2.4",

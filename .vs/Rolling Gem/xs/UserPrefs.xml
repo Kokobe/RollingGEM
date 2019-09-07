@@ -1,8 +1,11 @@
 ﻿<Properties StartupConfiguration="{A5B31D9B-D2FA-C3A9-D283-D188E5E4209E}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Packages/SocketIO/Scripts/Test/TestSocketIO.cs">
     <Files>
-      <File FileName="Assets/Scripts/GenerateMaze.cs" Line="24" Column="55" />
-      <File FileName="Assets/Scripts/GameController.cs" Line="144" Column="15" />
+      <File FileName="Assets/Scripts/GenerateMaze.cs" Line="49" Column="99" />
+      <File FileName="Assets/Scripts/GameController.cs" Line="67" Column="28" />
+      <File FileName="Assets/Packages/SocketIO/WebsocketSharp/WebSocket.cs" Line="176" Column="19" />
+      <File FileName="Assets/Packages/SocketIO/Scripts/SocketIO/SocketIOComponent.cs" Line="102" Column="23" />
+      <File FileName="Assets/Packages/SocketIO/Scripts/Test/TestSocketIO.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,12 +16,14 @@
                 <Node name="SocketIO" expanded="True">
                   <Node name="Scripts" expanded="True">
                     <Node name="SocketIO" expanded="True" />
+                    <Node name="Test" expanded="True">
+                      <Node name="TestSocketIO.cs" selected="True" />
+                    </Node>
                   </Node>
+                  <Node name="WebsocketSharp" expanded="True" />
                 </Node>
               </Node>
-              <Node name="Scripts" expanded="True">
-                <Node name="GameController.cs" selected="True" />
-              </Node>
+              <Node name="Scripts" expanded="True" />
             </Node>
           </Node>
         </State>

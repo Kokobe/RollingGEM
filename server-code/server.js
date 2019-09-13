@@ -7,10 +7,6 @@ var shortId 		= require('shortid');
 
 app.set('port', process.env.PORT || 2559);
 
-var games = {};
-var winner = "";
-var readyPlayers = 0;
-
 function randInt(min, max) { //min = inclusive, max = exclusive
 	return min + Math.floor((max-min)* Math.random());
 }
@@ -80,7 +76,9 @@ io.on('connection', function (socket) {
 		games[game_pin]["ready players"] += 1;
 		if (games[game_pin]["ready players"] === games[game_pin]['players']) {
 			var game_dimensions = generateMazeDimensions();
-			io.to(game_pin).emit("BOTH PLAYERS READY", {"game_dimensions" : game_dimensions});
+			var date = new Date();
+			var timestamp = date.getTime();
+			io.to(game_pin).emit("BOTH PLAYERS READY", {"game_dimensions" : game_dimensions, "time_stamp" : time_stamp});
 			games[game_pin]["ready players"] = 0;
 			games[game_pin]["winner"] = "";
 		}

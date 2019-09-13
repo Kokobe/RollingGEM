@@ -275,7 +275,7 @@ GameObject:
   m_Component:
   - component: {fileID: 215913906}
   m_Layer: 0
-  m_Name: Starting Point
+  m_Name: Maze Starting Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7641,7 +7641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1329119699}
-  transitionDuration: 2
+  transitionDuration: 0.5
 --- !u!4 &1726863503
 Transform:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using SocketIO;
+using System;
 
 public class GameController : MonoBehaviour
 {
@@ -29,7 +30,7 @@ public class GameController : MonoBehaviour
     void Awake()
     {
         bindControllers();
-        userId = System.Guid.NewGuid().ToString();
+        userId = Guid.NewGuid().ToString();
         StartCoroutine(ConnectToServer());
 
         socketIO.On("VALID GAME PIN", OnGamePinExists);
@@ -159,6 +160,7 @@ public class GameController : MonoBehaviour
     {
         ArrayList arr = parseGameDimensions(obj.data.GetField("game_dimensions").ToString());
         mazeGenerator.GenerateMaze(arr);
+
         cam_controller.move(-13.5f);
         player_controller.PutPlayerAtStart();
         player_controller.EnablePlayer();

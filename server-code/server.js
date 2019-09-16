@@ -4,6 +4,7 @@ var server			= require('http').createServer(app);
 var io 				= require('socket.io').listen(server);
 var shortId 		= require('shortid');
 
+var games = {};
 
 app.set('port', process.env.PORT || 2559);
 
@@ -76,9 +77,7 @@ io.on('connection', function (socket) {
 		games[game_pin]["ready players"] += 1;
 		if (games[game_pin]["ready players"] === games[game_pin]['players']) {
 			var game_dimensions = generateMazeDimensions();
-			var date = new Date();
-			var timestamp = date.getTime();
-			io.to(game_pin).emit("BOTH PLAYERS READY", {"game_dimensions" : game_dimensions, "time_stamp" : time_stamp});
+			io.to(game_pin).emit("BOTH PLAYERS READY", {"game_dimensions" : game_dimensions});
 			games[game_pin]["ready players"] = 0;
 			games[game_pin]["winner"] = "";
 		}
